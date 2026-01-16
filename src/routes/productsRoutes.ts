@@ -5,7 +5,13 @@ import {Router} from "express";
 const productsRoutes = Router(); 
 const productsController = new productController(); 
 
-productsRoutes.get("/", productsController.index) ; 
+productsRoutes.get("/", productsController.list);
+
+productsRoutes.post("/", productsController.create); 
+
+productsRoutes.put("/:id", productsController.find, productsController.update); 
+
+productsRoutes.delete("/:id", productsController.find, productsController.remove); 
 
 
 export { productsRoutes }; 
